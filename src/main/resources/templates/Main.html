@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="static\jquery-1.7.2.min.js"></script>
+</head>
+<body>
+    name:<input type="text" id="name" name="name"/>
+    password:<input type="text" id="password" name="password"/>
+    <input type="button" value="点击我" id="btn">
+    <script>
+        /*$("#btn").click(function (e) {
+            alert("hello");
+        })*/
+            $("#btn").click(function (e) {
+            var name = document.getElementById("name").value;
+            var password = document.getElementById("password").value;
+                $.ajax({
+                    type:"post",
+                    url:"/hello",
+                    data:"name="+name+"&password="+password,
+                    success:function (date) {
+                        window.location.href=date;
+                    }
+                });
+            });
+
+    </script>
+</body>
+</html>
